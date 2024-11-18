@@ -1,45 +1,14 @@
-import React from 'react'
-import { View, Button, StyleSheet } from 'react-native'
-import { useAppTheme } from '../components/ThemeContext';
-import { Surface, Switch, Text } from 'react-native-paper';
+import React, { useEffect, useState } from 'react';
+import {Avatar, Card, IconButton, FAB, Snackbar, TextInput, Dialog, Portal, Button, Text, Surface, Divider, Searchbar, useTheme } from "react-native-paper";
+import {View, Image, TouchableOpacity, StyleSheet, ScrollView, ActivityIndicator} from "react-native";
+// import { TouchableOpacity } from "react-native-gesture-handler";
+import { useIsFocused } from "@react-navigation/native";
+import { Dropdown } from "react-native-paper-dropdown";
 
 export default function HelpScreen(props) {
-  const { isDarkTheme, toggleTheme } = useAppTheme();
-
   return (
-    <Surface style={styles.container}>
-      <Text variant="displaySmall" style={styles.title}>
-        Help Screen
-      </Text>
-      <View style={styles.switchContainer}>
-        <Text variant="titleSmall" style={styles.subtitle}>
-          Current Theme: {isDarkTheme ? "Dark" : "Light"}
-        </Text>
-        <Switch value={isDarkTheme} onValueChange={toggleTheme} />
-      </View>
+    <Surface style={{flex:1, justifyContent: 'center', alignItems: 'center'}}>
+      <Text  variant='displaySmall'>HelpScreen</Text>
     </Surface>
-  );
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  title: {
-    margin: 20,
-  },
-  subtitle: {
-    marginVertical: 8,
-    fontSize: 16,
-  },
-  switchContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginVertical: 3,
-    paddingHorizontal: 30,
-  },
-  switchLabel: {
-    fontSize: 16,
-  },
-});
